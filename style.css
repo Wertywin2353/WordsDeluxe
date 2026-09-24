@@ -1,0 +1,496 @@
+* {
+    padding: 0;
+    margin: 0;
+    /*
+    border: 1px solid red;
+    */
+}
+
+body {
+    scrollbar-width: none;
+    background: linear-gradient(45deg,rgba(206, 149, 237, 1) 0%, rgba(0, 212, 255, 1) 100%);
+    background-size: сover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: aliceblue;
+    font-family: sans-serif;
+}
+#OVRLAY {
+    transition: 0.5s;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+}
+#authorsIntro {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    translate: -50%;
+    font-family: cursive;
+}
+
+#intro {
+    z-index: 1;
+    opacity: 50%;
+    transition: 0.5s;
+}
+
+#DeluxeIntroText {
+    opacity: 0;
+    transition: 0.5s;
+    translate: 0 -20px;
+}
+#IntroSplash {
+    z-index: 0;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+@keyframes introFade {
+    0% { translate: 0 0; opacity: 100; border-radius: 0; }
+    100% { translate: 0 -100%; opacity: 0; border-radius: 360px; }
+}
+
+#GameCloseButton, #AllRCloseButton {
+    background-color: aliceblue;
+    float: left;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    margin-left: 10px;
+    margin-top: 5px;
+    border-radius: 30px;
+    opacity: 0;
+}
+
+#AllRCloseButton {
+    z-index: 225;
+    float: right;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    margin-left: 10px;
+    margin-top: 5px;
+    border-radius: 30px;
+}
+@keyframes headerAppear {
+    0% { translate: 0 -100px; opacity: 50%; }
+    100% { translate: 0px; opacity: 100%; }
+}
+#headerInfo {
+    transition: 0.3s;
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+    position: relative;
+    margin: 0 auto;
+    top: 15px;
+    font-size: 20px;
+    width: 250px;
+    text-align: center;
+}
+#GameResetButton {
+    background-color: aliceblue;
+    float: right;
+    padding-top: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 2px;
+    margin-right: 10px;
+    margin-top: 5px;
+    border-radius: 30px;
+    opacity: 0;
+}
+#Cube {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    translate: -50% -100%;
+}
+#content {
+    border-radius: 15px 15px 0 0;
+    z-index: -1;
+    position: absolute;
+    top: 50%;
+    width: 99%;
+    opacity: 0;
+    bottom: 0;
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
+.UIBG {
+    background-color: aliceblue;
+    border-radius: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    min-height: 50px;
+}
+.UIBGGO {
+    text-align: center;
+    margin-left: 10px;
+    float: left;
+    background-color: aliceblue;
+    border-radius: 15px;
+    margin-top: 5px;
+    min-height: 50px;
+    color: #000;
+    z-index: 20;
+    padding: 5px;
+    width: 150px;
+}
+#addRuleBTN {
+    float: right;
+    position: relative;
+    background-color: aliceblue;
+    font-size: 17px;
+    border: 0;
+    padding-top: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 3px;
+    border-radius: 10px;
+    bottom: 1px;
+    margin-right: 5px;
+}
+
+.RuleP {
+    animation: adpAppear cubic-bezier(.73,-0.01,.23,.97) 0.2s;
+    background: rgba(206, 149, 237, 1);
+    color: aliceblue;
+    margin: 5px;
+    padding: 3px;
+    border-radius: 5px;
+}
+#RulesMini {
+    padding: 5px;
+}
+gradient {
+    display: block;
+    position: relative;
+    background: linear-gradient(transparent, aliceblue 80%);
+    height: 20px;
+    width: 100%;
+    top: -20px;
+}
+#openRulesBTN {
+    background: transparent;
+    width: 100%;
+    border: 0;
+    font-size: 17px;
+}
+.rollhiselm {
+    animation: rollelmAppear linear 0.3s;
+    display: block;
+    margin: 10px;
+    position: relative;
+    float: left;
+}
+
+@keyframes rollelmAppear {
+    0% { opacity: 0%; scale: 0.9; translate: 0 -5px; }
+    100% { opacity: 100%; scale: 1; translate: 0; }
+}
+#cubeHistory {
+    display: flex;
+    white-space: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+@keyframes contentAppear {
+    0% { opacity: 0; translate: 0 100px; }
+    100% { opacity: 100; translate: 0px; }
+}
+
+#NewWord {
+    float: right;
+    position: relative;
+    background-color: aliceblue;
+    font-size: 17px;
+    border: 0;
+    padding-top: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 3px;
+    border-radius: 10px;
+    bottom: 1px;
+    margin-right: 5px;
+}
+@keyframes NWBTNAppear {
+    0% { opacity: 0; scale: 0.8; }
+    100% { opacity: 100; scale: 1; }
+}
+#HelpButton {
+    color: #000;
+    font-size: 25px;
+    padding: 5px;
+}
+
+#newWordSplash, #newRuleSplash, #AboutSplash, #RestartSplash, #CloseSplash {
+    z-index: 19;
+    transition: 0.5s;
+    opacity: 0;
+    display: none;
+    background: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#AllRulesSplash {
+    padding: 5px;
+    color: #000;
+    z-index: 20;
+    scale: 0.6;
+    transition: 0.5s;
+    opacity: 0;
+    display: none;
+    background: aliceblue;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+#newWordContent, #newRuleContent, #AboutContent {
+    z-index: 20;
+    translate: 0 500px;
+    transition: 0.5s;
+    padding: 10px;
+    color: #000;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 200px;
+    background-color: aliceblue;
+    border-radius: 15px 15px 0 0;
+}
+
+#RestartContent, #CloseContent {
+    z-index: 20;
+    transition: 0.5s;
+    padding: 10px;
+    color: #000;
+    position: absolute;
+    left: 50px;
+    right: 50px;
+    top: 50%;
+    translate: 0 -50%;
+    background-color: aliceblue;
+    border-radius: 15px;
+}
+
+input {
+    outline: none;
+    background-color: white;
+    border: 0;
+    border-bottom: 2px solid rgba(0, 212, 255, 1);
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+    width: 95%;
+    position: relative;
+    left: 50%;
+    translate: -50%;
+    color: #000;
+    border-radius: 10px 10px 0 0;
+}
+#ConfirmButton, #ConfirmButtonRULE, #ConfirmButtonAbout {
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border-radius: 15px;
+    position: fixed;
+    bottom: 10px;
+    width: 90%;
+    left: 50%;
+    translate: -50%;
+    border: 0;
+    border-radius: 10px;
+    font-size: 25px;
+    color: aliceblue;
+    background: rgba(0, 212, 255, 1);
+}
+
+#wordHistory {
+    color: #000;
+    padding: 7px;
+}
+header {
+    position: fixed;
+    width: 100%;
+}
+
+textarea {
+    padding: 3px;
+    outline: none;
+    background-color: white;
+    border: 2px solid rgba(0, 212, 255, 1);
+    font-size: 20px;
+    margin-top: 20px;
+    width: 95%;
+    height: 100px;
+    position: relative;
+    left: 50%;
+    translate: -50%;
+    color: #000;
+    border-radius: 10px;
+    resize: none;
+}
+
+details {
+    background-color: white;
+    border: 0;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+summary {
+    font-size: 25px;
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+.desc {
+    background: aliceblue;
+    border-radius: 10px;
+    padding: 7px;
+}
+
+red {
+    color: red;
+}
+green {
+    color: green;
+}
+blue {
+    color: blue;
+}
+#ResetButton, .CancelButton, #ExitButton {
+    background: aliceblue;
+    border: 0;
+    font-size: 18px;
+}
+#ResetButton, #ExitButton {
+    float: left;
+}
+.CancelButton {
+    float: right;
+}
+#AutroSplash {
+    z-index: 21;
+    background-color: #000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    opacity: 0;
+}
+
+@keyframes AutroFade {
+    0% { translate: 0 100%; opacity: 0; border-radius: 360px; }
+    100% { translate: 0 0; opacity: 100; border-radius: 0; }
+}
+#CloseAllRulesButton {
+    z-index: 200;
+    background: transparent;
+    border: 0;
+    font-size: 18px;
+    float: right;
+    margin-top: 9px;
+    margin-right: 5px;
+}
+@keyframes adpAppear {
+    0% {opacity: 50%; scale: 0.9;}
+    100% {opacity: 100%; scale: 1;}
+}
+
+#gameOverScreen {
+    position: absolute;
+    margin-top: 20%;
+    left: 50%;
+    translate: -50%;
+}
+
+#gob1, #gob2, #gob3, #gob4, #gob5 {
+    transition: 0.3s;
+}
+
+@keyframes upperBoxAppear {
+    0% {opacity: 0%; translate: 0 -20px;}
+    100% {opacity: 100%; translate: 0;}
+}
+@keyframes upperBoxAppear2 {
+    0% {opacity: 0%; translate: 0 -20px;}
+    50% {opacity: 0%; translate: 0 -20px;}
+    100% {opacity: 100%; translate: 0;}
+}
+@keyframes centerBoxAppear {
+    0% {opacity: 0%; scale: 0.9;}
+    100% {opacity: 100%; scale: 1;}
+}
+@keyframes bottomAppear {
+    0% {opacity: 0%; translate: 0 20px;}
+    100% {opacity: 100%; translate: 0;}
+}
+@keyframes bottomBoxAppear2 {
+    0% {opacity: 0%; translate: 0 20px;}
+    50% {opacity: 0%; translate: 0 20px;}
+    100% {opacity: 100%; translate: 0;}
+}
+@keyframes HeaderGOAppear {
+    0% {opacity: 0%; translate: -20px;}
+    100% {opacity: 100%; translate: 0;}
+}
+#gob1 {
+    margin-left: 0;
+    animation: upperBoxAppear 0.5s cubic-bezier(.73,-0.01,.23,.97);
+}
+#gob2 {
+    
+    animation: upperBoxAppear2 0.5s cubic-bezier(.73,-0.01,.23,.97);
+}
+#gob3 {
+    margin-left: 0;
+    animation: centerBoxAppear 0.5s cubic-bezier(.73,-0.01,.23,.97);
+}
+#gob4 {
+    margin-left: 0;
+    animation: bottomAppear 0.5s cubic-bezier(.73,-0.01,.23,.97);
+}
+#gob5 {
+    animation: bottomBoxAppear2 0.5s cubic-bezier(.73,-0.01,.23,.97);
+}
+#goh {
+    animation: HeaderGOAppear 0.5s cubic-bezier(.73,-0.01,.23,.97);
+}
+
+#CloseGlobal {
+    z-index: 9999;
+    position: fixed;
+    left: 50%;
+    translate: -50%;
+    width: 320px;
+    bottom: 35px;
+    background-color: aliceblue;
+    font-size: 20px;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px;
+
+}

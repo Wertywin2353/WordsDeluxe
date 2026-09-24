@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Слова Deluxe</title>
+</head>
+<body>
+    <div id="OVRLAY">
+    <div id="IntroSplash"></div>
+    <div id="intro">
+        <div style="position: absolute; top: 50%; left: 50%; translate: -50% -50%;">
+        <img src="res/animatedLOGO.gif" style="filter: invert();">
+        <br><br>
+            <div style="translate: 10px;">
+            <h2>Слова</h2>
+            <p id="DeluxeIntroText" style="text-align: right; color: aqua;">DELUXE</p>
+            <br><br><br><br><br><br>
+            </div>
+        </div>
+        <div id="authorsIntro">
+            <h3>By Wertywin2353</h3>
+        </div>
+    </div>
+    <header>
+        <div id="GameCloseButton">
+            <img src="res/close.png" width="35px" onclick="confirmClosing()">
+        </div>
+        <div id="GameResetButton" onclick="confirmRestart()">
+            <img src="res/reset.png" width="35px">
+        </div>
+        <div id="headerInfo">Ожидаем начала игры...</div>
+    </header>
+    <div id="Cube" onclick="reRoll()"></div>
+    <div id="content">
+        <h3 style="margin-left: 5px;">История бросков</h3>
+        <div class="UIBG" id="cubeHistory">
+        </div>
+        <br>
+        <h3 style="margin-left: 5px;">Правила игры <button id="addRuleBTN" onclick="openRuleAdd()">Новое правило</button></h3>
+        <div class="UIBG" style="margin-top: 7px;" id="RulesMini">
+            <p class='RuleP'>Если выпадает 6-ка, то Игрок задает новое правило.</p>
+        </div>
+        <br>
+        <h3 style="margin-left: 5px;">История слов <button id="NewWord" onclick="openWordInput()">Новое слово</button></h3>
+        <div class="UIBG" id="wordHistory">
+        </div>
+        <br>
+        <div class="UIBG" id="HelpButton" onclick="openAbout()"><p style="margin-top: 10px;"><img src="res/question.png" style="width: 25px; position: relative; top: 3px; margin-right: 4px;">Полезное и помощь</p></div>
+        <br>
+        <div style="text-align: center;">© Wertywin2353 ● 2026</div>
+        <br>
+    </div>
+
+    <div id="newWordSplash">
+        <div id="newWordContent">
+            <hr style="border: 3px solid rgba(0,0,0,0.4); width: 60%; margin: 0 auto; margin-top: 2px; border-radius: 5px;" onclick="closeNewWord()">
+            <br>
+            <h2>Добавить слово</h2>
+            <p style="margin-top: 3px; opacity: 50%;">Следите, что бы слово не нарушало правил игры и начиналось на правильную букву.</p>
+            <input placeholder="Ваше слово" id="wordInput">
+            <p style="margin-left: 10px; margin-top: 3px; opacity: 50%;">◈ Слово сохранится с привязкой по времени</p>
+            <button id="ConfirmButton" onclick="ConfirmWord()">Добавить слово</button>
+        </div>
+    </div>
+
+    <div id="newRuleSplash">
+        <div id="newRuleContent">
+            <hr style="border: 3px solid rgba(0,0,0,0.4); width: 60%; margin: 0 auto; margin-top: 2px; border-radius: 5px;" onclick="closeNewRules()">
+            <br>
+            <h2>Добавить правило</h2>
+            <p style="margin-top: 3px; opacity: 50%;">Игра становится интернеснее с новыми правилами, а это значит время добавить еще одно!</p>
+            <textarea placeholder="Ваше правило" id="ruleInput"></textarea>
+            <button id="ConfirmButtonRULE" onclick="ConfirmRule()">Добавить правило</button>
+        </div>
+    </div>
+
+    <div id="AboutSplash">
+        <div id="AboutContent">
+            <hr style="border: 3px solid rgba(0,0,0,0.4); width: 60%; margin: 0 auto; margin-top: 2px; border-radius: 5px;" onclick="closeAbout()">
+            <br>
+            <h2>Полезное и помощь</h2>
+                <details>
+                    <summary>
+                        Об Игре "Слова Deluxe"
+                    </summary>
+                    <p class="desc">
+                        Игра <green>слова Deluxe</green> - это модифицированнная версия обычных слов, где кроме знаний слов важной частью игры также является<green> удача</green> и <blue>креативные идеи</blue>.
+                        <br>
+                        Используйте свой мозг и удачу, создавайте хитрые правила и победите своих соперников!
+                    </p>
+                </details>
+                <details>
+                    <summary>
+                        О этом приложении
+                    </summary>
+                    <p class="desc">
+                        Это Web-Приложение было создано разработчиком <blue>Wertywin2353</blue> и является публичным, некоммерческим, свободным в использовании и распространении.<br>
+                        В нем используются некоторые графические элементы и библиотеки от других сайтов (или ПО). Ниже написаны основные источники:  <br>
+                        1. Icons8 <green>(https://icons8.com/icons/all--style-material-rounded)</green><br>
+                        2. Telegram (анимация эмодзи :dice:, <green>http://t.me/</green>)<br>
+                        3. Проект на Itch.io <green>(https://snoblin.itch.io/pixel-art-dice)</green>
+                    </p>
+                </details>
+                <button id="ConfirmButtonAbout" onclick="closeAbout()">Закрыть</button>
+        </div>
+    </div>
+    <div id="AllRulesSplash">
+        <button id="CloseAllRulesButton" onclick="closeAllRules()"><red>Закрыть</red></button>
+        <h2 style="background-color: transparent; padding: 5px; border-radius: 10px;">Все правила сессии</h2>
+        <br><br>
+        <div id="rulesContainer"></div>
+    </div>
+    <div id="RestartSplash">
+        <div id="RestartContent">
+            <h2>Вы уверены?</h2>
+            <p>Весь прогресс игры будет потерян.</p>
+            <br>
+            <button id="ResetButton" onclick="ReloadPage()"><red>Сбросить</red></button>
+            <button class="CancelButton" onclick="closeReset()"><green>Отмена</green></button>
+        </div>
+    </div>
+    <div id="AutroSplash"></div>
+    <div id="CloseSplash">
+        <div id="CloseContent">
+            <h2>Вы уверены?</h2>
+            <p>Эта сессия закончится, и вы увидите хайлайты.</p>
+            <br>
+            <button id="ExitButton" onclick="showHighLights()"><red>Выйти</red></button>
+            <button class="CancelButton" onclick="closeExit()"><green>Отмена</green></button>
+        </div>
+    </div>
+    <script src="core.js"></script>
+    <script src="LazyLib-L.js"></script>
+    </div>
+</body>
+</html>
